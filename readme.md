@@ -25,3 +25,9 @@ curl -X PUT http://localhost:3000/users/2 \
 curl -X DELETE http://localhost:3000/users/2
 
 ```
+
+## Exercises
+1. Enable paging on the users list route  
+2. Add an "albums" module that support all CRUD operations similar to "users"  
+3. Add global error handler  
+4. Add middleware to measure how long it took to process each request  
