@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express"
 const usersService = require("./service")
 
 const router = express.Router();

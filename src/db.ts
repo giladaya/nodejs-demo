@@ -1,9 +1,14 @@
+export { };
 /**
  * Implementation for a mock document database
  */
 
 // Data storage
-let database = {
+type HasId = { id: number };
+type DbRecord = HasId & Record<string, unknown>;
+type Database = Record<string, DbRecord[]>;
+
+let database: Database = {
   users: [
     { id: 1, name: "Alice", email: "alice@gmail.com", avatar: "alice.png" },
     { id: 2, name: "Bob", email: "bob@gmail.com", avatar: "bob.jpg" },
@@ -14,10 +19,13 @@ let database = {
       avatar: "charlie.jpg",
     },
   ],
+  albums: [],
 };
 
+type Collections = keyof typeof database;
+
 // Read one item by ID
-function getOne(collection, id) {
+function getOne(collection: Collections, id: number) {
   if (Array.isArray(database[collection])) {
     return database[collection].find((item) => item.id === id);
   }
@@ -25,7 +33,7 @@ function getOne(collection, id) {
 }
 
 // Read a list of items with pagination
-function getList(collection, skip = 0, limit = 50) {
+function getList(collection: Collections, skip = 0, limit = 50) {
   if (Array.isArray(database[collection])) {
     return database[collection].slice(skip, skip + limit);
   }
@@ -33,19 +41,20 @@ function getList(collection, skip = 0, limit = 50) {
 }
 
 // Create one item from data
-function createOne(collection, data) {
-  if (!collection in database) {
-    database[collection] = [];
-  }
+function createOne<T extends DbRecord>(collection: Collections, data: Omit<T, "id">) {
   // This ID is not necessarily unique, but enough for a demo
   const id = Date.now();
-  const newItem = { ...data, id };
+  const newItem = { ...data, id } as T;
   database[collection].push(newItem);
   return newItem;
 }
 
 // Update one item
-function updateOne(collection, id, data) {
+function updateOne<T>(
+  collection: Collections,
+  id: number,
+  data: Omit<T, "id">
+) {
   if (Array.isArray(database[collection])) {
     const idx = database[collection].findIndex((item) => item.id === id);
     if (!idx) {
@@ -59,7 +68,7 @@ function updateOne(collection, id, data) {
 }
 
 // Delete one item
-function deleteOne(collection, id) {
+function deleteOne(collection: Collections, id: number) {
   if (Array.isArray(database[collection])) {
     database[collection] = database[collection].filter(
       (item) => item.id !== id

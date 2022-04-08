@@ -2,7 +2,16 @@ const DB = require("../db");
 
 const COLLECTION = "users";
 
-function getOne(id) {
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+type UserData = Omit<User, "id">;
+
+function getOne(id: number) {
   return DB.getOne(COLLECTION, id);
 }
 
@@ -10,15 +19,15 @@ function getList() {
   return DB.getList(COLLECTION);
 }
 
-function createOne(user) {
+function createOne(user: User) {
   return DB.createOne(COLLECTION, user);
 }
 
-function updateOne(id, data) {
+function updateOne(id: number, data: UserData) {
   return DB.updateOne(COLLECTION, id, data);
 }
 
-function deleteOne(id) {
+function deleteOne(id: number) {
   return DB.deleteOne(COLLECTION, id);
 }
 
