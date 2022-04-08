@@ -5,9 +5,14 @@
 // Data storage
 let database = {
   users: [
-    { id: 1, name: "Alice", email: "alice@gmail.com" },
-    { id: 2, name: "Bob", email: "bob@gmail.com" },
-    { id: 3, name: "Charlie", email: "charlie@gmail.com" },
+    { id: 1, name: "Alice", email: "alice@gmail.com", avatar: "alice.png" },
+    { id: 2, name: "Bob", email: "bob@gmail.com", avatar: "bob.jpg" },
+    {
+      id: 3,
+      name: "Charlie",
+      email: "charlie@gmail.com",
+      avatar: "charlie.jpg",
+    },
   ],
 };
 
