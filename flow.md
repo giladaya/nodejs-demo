@@ -7,38 +7,38 @@ Start with an empty folder
 
 *Slides*: 07 - Express
 
-`yarn add express`
-Implement basic server with express
+`yarn add express`  
+Implement basic server with express  
 
-`yarn add nodemon`
-Augment package.json start script
+`yarn add nodemon`  
+Augment package.json start script  
 
-*Exercise*: catchup
+*Exercise*: catchup  
 
-Basic routing
+Basic routing  
 
-Serve static files
+Serve static files  
 
-`yarn add body-parser cookie-parser`
-Connect middleware
-Use req.cookies
-`curl -v --cookie "USER_TOKEN=Yes" http://127.0.0.1:3000/hello`
+`yarn add body-parser cookie-parser`  
+Connect middleware  
+Use req.cookies   
+`curl -v --cookie "USER_TOKEN=Yes" http://127.0.0.1:3000/hello`  
 
-Routers and dir structure
+Routers and dir structure  
 
-Custom middleware
+Custom middleware  
 
-*Exercise*: Implement request params log
+*Exercise*: Implement request params log  
 
-Custom error handler
+Custom error handler  
 
-Use a view engine
+Use a view engine  
+  
+*Exercise*: Add contact details page  
 
-*Exercise*: Add contact details page
+Auth  
 
-Auth
+[Slides: 08 - typescript]  
 
-[Slides: 08 - typescript]
-
-Typescript
+Typescript  
 
