@@ -6,23 +6,23 @@ It uses a simple in-memory mock database.
 ## Example calls
 ```
 # Get list
-curl http://localhost:3000/users/
+curl http://localhost:3000/api/users/
 
 # Get single item
-curl http://localhost:3000/users/2
+curl http://localhost:3000/api/users/2
 
 # Create new item
-curl -X POST http://localhost:3000/users/ \
+curl -X POST http://localhost:3000/api/users/ \
    -H 'Content-Type: application/json' \
    -d '{"data": {"name":"Donald","email":"donald@duck.com"}}'
 
 # Update existing item
-curl -X PUT http://localhost:3000/users/2 \
+curl -X PUT http://localhost:3000/api/users/2 \
    -H 'Content-Type: application/json' \
    -d '{"data": {"name":"Donald","email":"donald@duck.com"}}'
 
 # Delete item
-curl -X DELETE http://localhost:3000/users/2
+curl -X DELETE http://localhost:3000/api/users/2
 
 ```
 
