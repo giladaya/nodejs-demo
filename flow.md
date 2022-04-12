@@ -24,7 +24,11 @@ Connect middleware
 Use req.cookies   
 `curl -v --cookie "USER_TOKEN=Yes" http://127.0.0.1:3000/hello`  
 
+*Note*: switch to premade project  
+
 Routers and dir structure  
+
+*Exercise*: Add paging to users list route  
 
 Custom middleware  
 
